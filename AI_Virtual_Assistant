@@ -1,0 +1,46 @@
+AI_Chatbot_Development/
+├── AI_Virtual_Assistant/   # New folder for Project 2
+└── AI_Fraud_Detection/     # Placeholder for Project 3
+# AI_Virtual_Assistant/assistant_main.py
+from tasks import TaskManager
+from nlp_assistant import NLPAssistant
+
+class VirtualAssistant:
+    def __init__(self):
+        self.task_manager = TaskManager()
+        self.nlp_assistant = NLPAssistant()
+
+    def run(self):
+        print("Assistant is ready. (Type 'exit' to quit)")
+        while True:
+            user_input = input("You: ")
+            if user_input.lower() == "exit":
+                print("Assistant: Goodbye!")
+                break
+            response = self.nlp_assistant.handle_input(user_input)
+            print("Assistant:", response)
+
+if __name__ == "__main__":
+    assistant = VirtualAssistant()
+    assistant.run()
+# AI_Virtual_Assistant/tasks.py
+from datetime import datetime
+
+class TaskManager:
+    def set_reminder(self, task, time):
+        # Placeholder function to set a reminder
+        print(f"Reminder set for '{task}' at {time}")
+        return f"Reminder for '{task}' at {time} has been set."
+
+    def get_schedule(self):
+        # Placeholder function to return today's schedule
+        return "Here's your schedule for today."
+# AI_Virtual_Assistant/nlp_assistant.py
+class NLPAssistant:
+    def handle_input(self, text):
+        if "remind me" in text:
+            task = "call John"  # Placeholder task
+            time = "4 PM tomorrow"  # Placeholder time
+            return f"Setting reminder: {task} at {time}"
+        return "I'm here to help!"
+
