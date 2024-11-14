@@ -1,0 +1,45 @@
+AI_Chatbot_Development/
+├── AI_Fraud_Detection/      # New folder for Project 3
+├── AI_Virtual_Assistant/    # Existing folder for Project 2
+└── src/
+# AI_Fraud_Detection/fraud_detection_main.py
+from data_preparation import load_data
+from model_training import FraudDetectionModel
+
+class FraudDetectionSystem:
+    def __init__(self):
+        self.model = FraudDetectionModel()
+
+    def detect_anomaly(self, transaction):
+        prediction = self.model.predict(transaction)
+        return "Fraudulent" if prediction else "Legitimate"
+
+if __name__ == "__main__":
+    system = FraudDetectionSystem()
+    # Example transaction for testing
+    transaction = {"amount": 2000, "location": "online", "account_age": 5}
+    print(system.detect_anomaly(transaction))
+# AI_Fraud_Detection/data_preparation.py
+def load_data(filepath):
+    # Placeholder function to load transaction data
+    print(f"Loading data from {filepath}")
+    return []
+# AI_Fraud_Detection/model_training.py
+from sklearn.ensemble import IsolationForest
+
+class FraudDetectionModel:
+    def __init__(self):
+        self.model = IsolationForest()
+
+    def train(self, data):
+        self.model.fit(data)
+        print("Model trained on data.")
+
+    def predict(self, transaction):
+        # Placeholder: Treat transactions with amount > 1000 as fraud for testing
+        return transaction["amount"] > 1000
+pip install scikit-learn
+pip freeze > requirements.txt
+git add .
+git commit -m "Added AI Virtual Assistant and Fraud Detection projects"
+git push origin main
